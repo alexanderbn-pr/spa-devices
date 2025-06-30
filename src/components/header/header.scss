@@ -1,0 +1,22 @@
+@use '../../style/mixins.scss' as *;
+
+.header {
+  @include d-flex(row, initial, center, 46px);
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  &-logo {
+    height: 40px;
+    width: auto;
+  }
+  &-language {
+    margin-left: auto;
+    @include d-flex(row, center, center, 20px);
+    &-select {
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: #fff;
+      color: #1976d2;
+      transition: border-color 0.2s;
+    }
+  }
+}

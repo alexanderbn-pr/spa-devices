@@ -1,0 +1,91 @@
+@use './mixins' as *;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+body {
+  display: block;
+  margin: 0;
+}
+
+#root {
+  display: grid;
+  box-sizing: border-box;
+  grid-template: 'header header' 8vh 'sidebar main' 84vh 'footer footer' 8vh / 10vw 90vw;
+
+  header {
+    grid-area: header;
+  }
+  aside {
+    grid-area: sidebar;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.2em;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+
+input {
+  padding: 0.625rem;
+  border: 0.125rem solid #ddd;
+  height: 40%;
+}
+
+button {
+  appearance: none;
+  background-color: #1a1a1a;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  outline-offset: -2px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: border-color 0.25s;
+}
+
