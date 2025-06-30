@@ -1,7 +1,10 @@
+import React, { useEffect } from 'react';
+import { useDevices } from '../../hooks/useDevices';
+
 import './device.scss';
 
 function Device() {
-  
+  const {getDevices,isLoadingDevices,isErrorDevices, devices} = useDevices();
 
   return (
     <>
