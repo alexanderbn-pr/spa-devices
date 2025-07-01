@@ -1,7 +1,7 @@
 @use '../../style/mixins.scss' as *;
 
 .header {
-  @include d-flex(row, initial, center, 46px);
+  @include d-flex(row, center, center, 46px);
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.8);
   &-logo {

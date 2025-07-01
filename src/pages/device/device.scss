@@ -1,2 +1,7 @@
 @use '../../style/mixins.scss' as *;
 
+.devices-container {
+  &-header {
+    @include d-flex(row, space-between, center);
+  }
+}
