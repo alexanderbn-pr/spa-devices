@@ -4,9 +4,6 @@ export const fetchDevices = async () => {
   return await fetch(`${DEVICE_API_URL}api/product`)
     .then((res) => {
       if (!res.ok) throw new Error('Error al obtener los dispositivos');
-      return res?.json();
+      return res?.json() ?? [];
     })
-    .then((data) => {
-      return data ?? [];
-    });
 };

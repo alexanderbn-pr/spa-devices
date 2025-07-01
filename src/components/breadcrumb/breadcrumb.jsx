@@ -1,8 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
+import { useDeviceDetails } from '../../hooks/useDeviceDetails'; // importa tu hook
+
 import './breadcrumb.scss';
 
 const Breadcrumbs = () => {
   const location = useLocation();
+  const match = useMatch('/deviceDetails/:id');
+  const id = match?.params?.id;
+  const { deviceDetails } = useDeviceDetails(id);
+  let model;
 
   if (location.pathname === '/device') {
     return (
@@ -13,13 +19,16 @@ const Breadcrumbs = () => {
       </nav>
     );
   }
-  if (location.pathname === '/deviceDetails') {
+
+  if (location.pathname.includes('/deviceDetails/')) {
+    model = deviceDetails?.model;
+
     return (
       <nav className="breadcrumb">
         <Link to="/device">Dispositivos</Link>
         <span> / </span>
         <strong>
-          <span>Detalles del Dispositivo</span>
+          <span>{model}</span>
         </strong>
       </nav>
     );

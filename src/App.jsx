@@ -12,15 +12,15 @@ import Footer from './components/footer/footer';
 
 function App() {
   return (
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/device" replace />} />
-          <Route path="/device" element={<Device />} />
-          <Route path="/deviceDetails" element={<DeviceDetails />} />
-        </Routes>
-        <Footer />
-      </Router>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate to="/device" replace />} />
+        <Route path="/device" element={<Device />} />
+        <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

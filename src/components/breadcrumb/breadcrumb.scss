@@ -1,12 +1,12 @@
 @use '../../style/mixins.scss' as *;
 
 .breadcrumb {
-  @include d-flex(row, space-between, center);
+  @include d-flex(row, initial, center, 10px);
   font-size: 1rem;
   color: white;
   width: 70vw;
   a {
-    color: #1976d2;
+    color: white;
     text-decoration: none;
     transition: text-decoration 0.2s;
   }
