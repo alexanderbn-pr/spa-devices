@@ -28,6 +28,9 @@
 
   &-info {
     @include d-flex(row, center, initial, 7px);
+    &-price {
+      color: rgb(184, 117, 117);
+    }
   }
   &-name {
     font-weight: 500;

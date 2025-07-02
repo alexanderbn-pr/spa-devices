@@ -26,7 +26,7 @@ function Device() {
       )}
 
       {isLoadingDevices ? (
-        <p>Cargando...</p>
+        <p className="loading">Cargando...</p>
       ) : (
         <>
           <article className="devices-container-header">

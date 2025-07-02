@@ -8,15 +8,17 @@
     height: 40px;
     width: auto;
   }
-  &-language {
-    margin-left: auto;
-    @include d-flex(row, center, center, 20px);
-    &-select {
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: #fff;
-      color: #1976d2;
-      transition: border-color 0.2s;
+  &-cart {
+    @include d-flex(row, center, center, 10px);
+    img {
+      width: 3vw;
+    }
+    &-count {
+      display: inline-block;
+      padding: 0px 8px;
+      border: 1px solid rgb(184, 117, 117);
+      border-radius: 50%;
+      text-align: center;
     }
   }
 }
