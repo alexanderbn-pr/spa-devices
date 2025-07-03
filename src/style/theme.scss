@@ -17,7 +17,7 @@ body {
 #root {
   display: grid;
   box-sizing: border-box;
-  grid-template: 'header header' 8vh 'sidebar main' 84vh 'footer footer' 8vh / 10vw 90vw;
+  grid-template: 'header' 8vh 'main' 92% / 100%;
 
   header {
     grid-area: header;
@@ -70,25 +70,32 @@ input {
 }
 
 button {
-  appearance: none;
-  background-color: #1a1a1a;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  outline-offset: -2px;
-  padding: 0.5rem 1.5rem;
-  font-size: 0.9em;
-  font-weight: 600;
+  border: 1px solid #3fa7ff;
+  background: transparent;
   text-transform: uppercase;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
-  font-family: inherit;
-  transition: border-color 0.25s;
+  padding: 1vw 1vh;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.8rem;
+  width: 20vw;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.1s;
+  letter-spacing: 0.5px;
+  &:hover:not(:disabled) {
+    background: #3fa7ff;
+    transform: translateY(-2px) scale(1.03);
+  }
+  &:disabled {
+    background: #444c56;
+    color: #b0bec5;
+    border: none;
+    cursor: not-allowed;
+  }
 }
-
 .loading {
   text-align: center;
   padding-top: 4vh;

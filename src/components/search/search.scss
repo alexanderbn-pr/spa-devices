@@ -3,7 +3,7 @@
 .search {
   @include d-flex(row, initial, center);
   &-container {
-    @include d-flex(row, initial, center, 20px);
+    @include d-flex(row, flex-end, center, 20px);
     width: 20%;
   }
 }

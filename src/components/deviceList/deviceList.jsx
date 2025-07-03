@@ -8,10 +8,10 @@ import Device from '../deviceList/device';
 const DeviceList = ({ devices }) => {
   console.log('Renderizando DeviceList', devices.length);
   return (
-    <div className="devices-list">
+    <section className="devices-list">
       {devices.length > 0 &&
         devices.map((device) => <Device device={device} key={device.id} />)}
-    </div>
+    </section>
   );
 };
 

@@ -30,8 +30,6 @@ const DeviceDetails = () => {
     });
   };
 
-  //Para que sea mas facil de entender, he usado este modo de mostrar la carga porque solo se va a mostrar la pantalla entera
-  //Y los detalles de los dispositivos va a ser mas extenso
   if (isLoadingDeviceDetails) return <div className="loading">Cargando...</div>;
   if (isErrorDeviceDetails)
     return (
@@ -39,69 +37,88 @@ const DeviceDetails = () => {
         <p className="error-message">
           Ha habido un error al obtenero los dispositivos
         </p>
-        <button onClick={() => getDeviceDetails}>Recargar detalles</button>
+        <button aria-label="Recargar detalles" onClick={() => getDeviceDetails}>
+          Recargar detalles
+        </button>
       </section>
     );
 
   return (
-    <div>
-      <img
-        className="device-details-image"
-        alt="image of device"
-        src={deviceDetails.imgUrl}
-      />
-      <div className="device-details-info">
-        <div className="device-details-text">
-          <p className="device-card-model">{deviceDetails.brand} :</p>
-          <p className="device-card-model">{deviceDetails.model}</p>
-          <p className="device-card-info device-card-info-price">
-            {deviceDetails.price || 100} {CURRENCY}
+    <main className="details-view">
+      <section className="details-view-image">
+        <img src={deviceDetails.imgUrl} alt="image of device" />
+      </section>
+      <section className="details-view-side">
+        <aside className="details-view-side-text details-view-container">
+          <p>
+            <span>Marca: </span> {deviceDetails.brand}
           </p>
-          <p className="device-card-model">{deviceDetails.cpu}</p>
-          <p className="device-card-model">{deviceDetails.ram}</p>
-          <p className="device-card-model">{deviceDetails.os}</p>
-          <p className="device-card-model">{deviceDetails.displayResolution}</p>
-          <p className="device-card-model">{deviceDetails.battery}</p>
-          <p className="device-card-model">{deviceDetails.primaryCamera[0]}</p>
-          <p className="device-card-model">{deviceDetails.dimentions}</p>
-          <p className="device-card-model">
-            {deviceDetails.weight} {WEIGHT}
+          <p>
+            <span>Modelo: </span> {deviceDetails.model}
           </p>
-        </div>
-        <div className="device-details-actions">
-          <select
-            className="device-color-select"
-            value={colorSelected}
-            onChange={(e) => setColorSelected(e.target.value)}
-          >
-            {colors.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <select
-            className="device-storage-select"
-            value={storageSelected}
-            onChange={(e) => setStorageSelected(e.target.value)}
-          >
-            {storages.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <p>
+            <span>Precio: </span> {deviceDetails.price || 100} {CURRENCY}
+          </p>
+          <p>
+            <span>Cpu: </span> {deviceDetails.cpu}
+          </p>
+          <p>
+            <span>Memoria: </span> {deviceDetails.ram}
+          </p>
+          <p>
+            <span>Sistema operativo: </span> {deviceDetails.os}
+          </p>
+          <p>
+            <span>Resolución: </span> {deviceDetails.displayResolution}
+          </p>
+          <p>
+            <span>Bateria: </span> {deviceDetails.battery}
+          </p>
+          <p>
+            <span>Camara principal: </span> {deviceDetails.primaryCamera[0]}
+          </p>
+          <p>
+            <span>Dimensiones: </span> {deviceDetails.dimentions}
+          </p>
+          <p>
+            <span>Peso: </span> {deviceDetails.weight} {WEIGHT}
+          </p>
+        </aside>
+        <aside className="details-view-actions details-view-container">
+          <div className="details-view-actions-selects">
+            <select
+              value={colorSelected}
+              onChange={(e) => setColorSelected(e.target.value)}
+            >
+              {colors.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={storageSelected}
+              onChange={(e) => setStorageSelected(e.target.value)}
+            >
+              {storages.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
           <button
             disabled={!storageSelected || !colorSelected || isLoadingAddingCart}
             onClick={() =>
               handleAddDeviceCart(id, colorSelected, storageSelected)
             }
+            aria-label="Añadir al carrito"
           >
             {isLoadingAddingCart ? 'Añadiendo...' : 'Añadir al carrito'}
           </button>
-        </div>
-      </div>
-    </div>
+        </aside>
+      </section>
+    </main>
   );
 };
 

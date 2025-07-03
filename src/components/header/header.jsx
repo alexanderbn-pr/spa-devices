@@ -10,12 +10,12 @@ const Header = () => {
     <header className="header">
       <img src={logo} alt="Logo" className="header-logo" />
       <Breadcrumbs />
-      <div className="header-cart">
+      <aside className="header-cart">
         <img alt="cart icon" src={cart} />
         {cartItemsCount > 0 && (
           <span className="header-cart-count">{cartItemsCount}</span>
         )}
-      </div>
+      </aside>
     </header>
   );
 };

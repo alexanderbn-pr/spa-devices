@@ -21,20 +21,22 @@ function Device() {
           <p className="error-message">
             Ha habido un error al obtenero los dispositivos
           </p>
-          <button onClick={() => getDevices}>Recargar dispositivos</button>
+          <button aria-label="Recargar dispositivos" onClick={() => getDevices}>
+            Recargar dispositivos
+          </button>
         </section>
       )}
 
       {isLoadingDevices ? (
         <p className="loading">Cargando...</p>
       ) : (
-        <>
-          <article className="devices-container-header">
+        <section className="devices-content">
+          <article className="devices-content-header">
             <h3>Lista de dispositivos</h3>
             <Search valueSearch={searchName} setValue={setSearchName} />
           </article>
           <DeviceList devices={devices} />
-        </>
+        </section>
       )}
     </main>
   );

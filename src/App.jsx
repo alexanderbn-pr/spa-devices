@@ -8,7 +8,6 @@ import {
 import Device from './pages/device/device';
 import DeviceDetails from './pages/deviceDetails/deviceDetails';
 import Header from './components/header/header';
-import Footer from './components/footer/footer';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <Route path="/device" element={<Device />} />
         <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

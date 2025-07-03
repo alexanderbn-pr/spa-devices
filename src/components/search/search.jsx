@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Search = ({ valueSearch, setValue }) => {
   return (
-    <div className="search-container">
+    <form className="search-container">
       <input
         type="text"
         placeholder="Buscar dispositivos"
@@ -12,7 +12,7 @@ const Search = ({ valueSearch, setValue }) => {
         className="search-input"
         aria-label="Buscar libro"
       />
-    </div>
+    </form>
   );
 };
 
