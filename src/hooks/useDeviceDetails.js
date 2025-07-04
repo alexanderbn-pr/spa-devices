@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchDeviceDetails } from '../services/get-deviceDetails';
+import { fetchDeviceDetails } from '../services/getDeviceDetails.js';
 import { useEffect, useState } from 'react';
-import { EXPIRATION } from '../constants';
+import { EXPIRATION } from '../constants.js';
 export const useDeviceDetails = (id) => {
   const [storages, setStorages] = useState([]);
   const [storageSelected, setStorageSelected] = useState('');
@@ -17,7 +17,7 @@ export const useDeviceDetails = (id) => {
     queryFn: () => fetchDeviceDetails(id),
     enabled: !!id,
     staleTime: EXPIRATION,
-    cacheTime: EXPIRATION,
+    cacheTime: 60 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
 

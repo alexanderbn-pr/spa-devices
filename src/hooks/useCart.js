@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { fetchAddDeviceCart } from '../services/post-addDeviceCart';
+import { fetchAddDeviceCart } from '../services/postAddDeviceCart';
 import { useCartContext } from './useCartContext';
 
 export const useCart = () => {

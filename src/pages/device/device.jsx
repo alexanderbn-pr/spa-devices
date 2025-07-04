@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDevices } from '../../hooks/useDevices';
-import DeviceList from '../../components/deviceList/deviceList';
-import Search from '../../components/search/search';
+import DeviceList from '../../components/deviceList/DeviceList';
+import Search from '../../components/search/Search';
 import './device.scss';
 
 function Device() {

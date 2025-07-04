@@ -1,7 +1,7 @@
 import './header.scss';
 import logo from '../../assets/icons/logo.png';
 import cart from '../../assets/icons/cart.png';
-import Breadcrumbs from '../breadcrumb/breadcrumb';
+import Breadcrumbs from '../breadcrumb/Breadcrumb';
 import { useCart } from '../../hooks/useCart';
 import { Link, useLocation } from 'react-router-dom';
 

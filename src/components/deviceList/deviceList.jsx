@@ -1,4 +1,4 @@
-import './deviceList.scss';
+import './device-list.scss';
 
 import React from 'react';
 import PropTypes from 'prop-types';

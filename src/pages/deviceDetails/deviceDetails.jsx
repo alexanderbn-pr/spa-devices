@@ -1,5 +1,5 @@
 import React from 'react';
-import './deviceDetails.scss';
+import './device-details.scss';
 import { useParams } from 'react-router-dom';
 import { useDeviceDetails } from '../../hooks/useDeviceDetails';
 import { CURRENCY, WEIGHT, UNKNOWN } from '../../constants';

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchDevices } from '../services/get-devices';
+import { fetchDevices } from '../services/getDevices';
 import { useDebounce } from '@uidotdev/usehooks';
 import { useMemo, useState } from 'react';
 import { EXPIRATION } from '../constants';
