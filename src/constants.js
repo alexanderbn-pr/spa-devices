@@ -5,3 +5,4 @@ export const LANGUAGES = [
 
 export const CURRENCY = "€"  
 export const WEIGHT = "g"
+export const UNKNOWN = "Desconocido"

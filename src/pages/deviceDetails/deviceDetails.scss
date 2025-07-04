@@ -20,13 +20,17 @@
     min-height: 15.9vh;
   }
   &-image {
-    @include d-flex(row, initial, center);
+    @include d-flex(column, initial, center, 3rem);
     width: 38vw;
     min-width: 16vw;
     max-width: 30vw;
     height: 42vh;
     min-height: 10vh;
     max-height: 43vh;
+    h3 {
+      font-weight: bold;
+      color: rgb(184, 117, 117);
+    }
     img {
       width: 100%;
       height: 100%;
@@ -54,8 +58,11 @@
     width: 100%;
     align-items: center;
     &-selects {
-      @include d-flex(row, space-between, initial, 2rem);
+      @include d-flex(row, space-between, center, 2rem);
       width: 100%;
+      span {
+        width: 9vw;
+      }
       select {
         padding: 0.7em 2.5em 0.7em 1em;
         border-radius: 8px;
