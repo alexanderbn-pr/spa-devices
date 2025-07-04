@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchDevices } from '../services/get-devices';
 import { useDebounce } from '@uidotdev/usehooks';
 import { useMemo, useState } from 'react';
-
+import { EXPIRATION } from '../constants';
 export const useDevices = () => {
   const [searchName, setSearchName] = useState('');
   const debouncedFilterName = useDebounce(searchName, 250);
@@ -15,7 +15,8 @@ export const useDevices = () => {
   } = useQuery({
     queryKey: ['devices'],
     queryFn: () => fetchDevices(),
-    staleTime: 5 * 60 * 1000,
+    staleTime: EXPIRATION,
+    cacheTime: EXPIRATION,
     refetchOnWindowFocus: false,
   });
 

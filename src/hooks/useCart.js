@@ -13,9 +13,7 @@ export const useCart = () => {
     mutationFn: fetchAddDeviceCart,
     onSuccess: (count) => {
       setCartItemsCount((prev) => {
-        const newCount = prev + count;
-        localStorage.setItem('cartItemsCount', newCount);
-        return newCount;
+        return prev + count;
       });
     },
   });

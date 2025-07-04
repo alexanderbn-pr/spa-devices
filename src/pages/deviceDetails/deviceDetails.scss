@@ -20,7 +20,7 @@
     min-height: 15.9vh;
   }
   &-image {
-    @include d-flex(column, initial, center, 3rem);
+    @include d-flex(column, initial, center, 1rem);
     width: 38vw;
     min-width: 16vw;
     max-width: 30vw;
