@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Device from '../deviceList/device';
 
 const DeviceList = ({ devices }) => {
-  console.log('Renderizando DeviceList', devices.length);
   return (
     <section className="devices-list">
       {devices.length > 0 &&

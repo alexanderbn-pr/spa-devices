@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { CURRENCY } from '../../constants';
 const Device = ({ device }) => {
-  console.log('Renderizando DeviceComponent', device.id);
   const navigate = useNavigate();
 
   return (

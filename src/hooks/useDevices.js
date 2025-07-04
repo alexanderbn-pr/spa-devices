@@ -21,7 +21,6 @@ export const useDevices = () => {
   });
 
   const filteredDevices = useMemo(() => {
-    console.log('Filtrado de dispositivos');
     return searchName != '' && searchName.length > 0
       ? devices.filter((device) => {
           return (

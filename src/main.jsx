@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 import './style/theme.scss';
-import './i18n';
 import App from './App.jsx';
 import { CartProvider } from './hooks/useCartContext';
 const queryClient = new QueryClient();
