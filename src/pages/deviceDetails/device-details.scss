@@ -29,7 +29,7 @@
     max-height: 43vh;
     h3 {
       font-weight: bold;
-      color: rgb(184, 117, 117);
+      color: var(--color-red);
     }
     img {
       width: 100%;
@@ -47,7 +47,7 @@
         color: #e3e6ea;
         span {
           font-weight: 600;
-          color: #3fa7ff;
+          color: var(--color-primary);
           letter-spacing: 0.5px;
         }
       }

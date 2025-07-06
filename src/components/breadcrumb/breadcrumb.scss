@@ -3,10 +3,10 @@
 .breadcrumb {
   @include d-flex(row, initial, center, 10px);
   font-size: 1rem;
-  color: white;
+  color: var(--color-white);
   width: 84vw;
   a {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     transition: text-decoration 0.2s;
   }
@@ -14,6 +14,6 @@
     text-decoration: underline;
   }
   span {
-    color: white;
+    color: var(--color-white);
   }
 }

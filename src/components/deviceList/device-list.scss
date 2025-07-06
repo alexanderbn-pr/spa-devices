@@ -25,13 +25,12 @@
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
   &-info {
     @include d-flex(row, center, initial, 7px);
     &-price {
-      color: rgb(184, 117, 117);
+      color: var(--color-red);
     }
   }
   &-name {
