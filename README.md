@@ -1,15 +1,47 @@
-# Alexander Bosch - Device
+# SPA Devices
 
-Para arrancar la aplicación hay que ejecutar en el terminal los siguientes comandos:
-    - npm install  (para instalar las librerias)
-    - npm run dev (para ejecutar la aplicación en local)
-    - npm run test (para ejecutar los tests realizados)
+Aplicación SPA para la visualización y gestión de dispositivos.
 
-En esta prueba técnica de programación se han realizado las siguientes funcionalidades:
+## 🚀 Instalación y ejecución
 
-- Se han creado dos paginas diferentes, una para visualizar los diferentes dispositivos y otro para visualizar los detalles de cada dispositivo
-- Para cachear las llamadas y un mejor funcionamiento se ha utilizado el react-query para las llamadas y se ha guardado en el localStorage la cantidad de productos que se han añadido al carrito teniendo una caducidad de todos los datos de 1h
-- Para el diseño de la aplicación se ha utilizado SCSS y se han creado un mixin de muestra para los contenedores flex y se han añadido los css para que la aplicación sea lo máximo responsive posible.
-- Se ha utilizado un hook externo (useDevaunce) para el filtrado de productos para que solo filtre cuando el cliente deja de escribir.
-- Se han realizado los tests de un componente y de un custoom hock de muestra
+Ejecuta los siguientes comandos en el terminal:
 
+```bash
+npm install         # Instala las dependencias
+npm run dev         # Ejecuta la aplicación en modo desarrollo
+npm run test        # Ejecuta los tests unitarios
+```
+
+
+## 🛠️ Tecnologías utilizadas
+
+- **React**
+- **React Query**
+- **SCSS**
+- **Vitest** (testing)
+- **@testing-library/react** (testing)
+- **LocalStorage**
+
+## 📦 Estructura del proyecto
+
+```
+src/
+  components/
+  hooks/
+  pages/
+  services/
+  style/
+  ...
+```
+
+## 📝 Funcionalidades implementadas
+
+- 📄 Se han creado dos páginas diferentes: una para visualizar los distintos dispositivos y otra para ver los detalles de cada dispositivo.
+
+- ⚡ Para cachear las llamadas y mejorar el rendimiento, se ha utilizado react-query, y se ha almacenado en el localStorage la cantidad de productos añadidos al carrito, con una caducidad de los datos de 1 hora.
+
+- 🎨 Para el diseño de la aplicación se ha utilizado SCSS. Se ha creado un mixin de ejemplo para contenedores flexibles y se han añadido estilos CSS para que la aplicación sea lo más responsive posible.
+
+- ⌨️ Se ha utilizado un hook externo (useDebounce) para el filtrado de productos, de manera que solo se filtren cuando el usuario deja de escribir.
+
+- 🧪 Se han realizado pruebas unitarias de un componente y de un custom hook de ejemplo.
