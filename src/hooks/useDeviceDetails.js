@@ -1,50 +1,61 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchDeviceDetails } from '../services/getDeviceDetails.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { queryKeys } from '../lib/query-keys.js';
 import { EXPIRATION } from '../constants.js';
+
+/**
+ * Hook para obtener detalles de un dispositivo específico
+ */
 export const useDeviceDetails = (id) => {
-  const [storages, setStorages] = useState([]);
   const [storageSelected, setStorageSelected] = useState('');
-  const [colors, setColors] = useState([]);
   const [colorSelected, setColorSelected] = useState('');
+
   const {
     data: deviceDetails,
     isLoading: isLoadingDeviceDetails,
     isError: isErrorDeviceDetails,
     refetch: getDeviceDetails,
   } = useQuery({
-    queryKey: ['deviceDetail', id],
+    queryKey: queryKeys.devices.detail(id),
     queryFn: () => fetchDeviceDetails(id),
     enabled: !!id,
     staleTime: EXPIRATION,
-    cacheTime: 60 * 60 * 1000,
+    gcTime: 60 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
 
-  useEffect(() => {
-    //Selector de almacenamiento
-    if (deviceDetails && deviceDetails.internalMemory) {
-      const optionsStorages = deviceDetails.internalMemory.map((mem) => ({
+  // Memoize para evitar recrear arrays en cada render - estabilidad de referencias
+  const storages = useMemo(
+    () =>
+      deviceDetails?.internalMemory?.map((mem) => ({
         value: mem,
         label: mem,
-      }));
-      setStorages(optionsStorages);
-      if (optionsStorages.length > 0) {
-        setStorageSelected(optionsStorages[0].value);
-      }
-    }
-    //Selector de colores
-    if (deviceDetails && deviceDetails.colors) {
-      const optionsColors = deviceDetails.colors.map((color) => ({
+      })) ?? [],
+    [deviceDetails?.internalMemory]
+  );
+
+  const colors = useMemo(
+    () =>
+      deviceDetails?.colors?.map((color) => ({
         value: color,
         label: color,
-      }));
-      setColors(optionsColors);
-      if (optionsColors.length > 0) {
-        setColorSelected(optionsColors[0].value);
-      }
+      })) ?? [],
+    [deviceDetails?.colors]
+  );
+
+  // Seleccionar primer valor por defecto si no hay selección
+  useEffect(() => {
+    if (storages.length > 0 && !storageSelected) {
+      setStorageSelected(storages[0].value);
     }
-  }, [deviceDetails]);
+  }, [storages, storageSelected]);
+
+  useEffect(() => {
+    if (colors.length > 0 && !colorSelected) {
+      setColorSelected(colors[0].value);
+    }
+  }, [colors, colorSelected]);
 
   return {
     getDeviceDetails,

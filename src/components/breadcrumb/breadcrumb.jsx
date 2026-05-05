@@ -1,3 +1,5 @@
+'use client';
+
 import { Link, useLocation, useMatch } from 'react-router-dom';
 import { useDeviceDetails } from '../../hooks/useDeviceDetails'; // importa tu hook
 

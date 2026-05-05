@@ -1,45 +1,68 @@
-import React from 'react';
+'use client';
+
+import { Component } from 'react';
+import { Suspense } from 'react';
 import { useDevices } from '../../hooks/useDevices';
+import { useDevicesSearch } from '../../hooks/useDevicesSearch';
+import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
 import DeviceList from '../../components/deviceList/DeviceList';
 import Search from '../../components/search/Search';
 import './device.scss';
 
-function Device() {
-  const {
-    getDevices,
-    isLoadingDevices,
-    isErrorDevices,
-    devices,
-    setSearchName,
-    searchName,
-  } = useDevices();
+// Error Boundary simple
+class DeviceErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-  return (
-    <main className="devices-container">
-      {isErrorDevices && (
-        <section>
-          <p className="error-message">
-            Ha habido un error al obtenero los dispositivos
-          </p>
-          <button aria-label="Recargar dispositivos" onClick={() => getDevices}>
-            Recargar dispositivos
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <section className="error-state">
+          <p className="error-message">Error al cargar dispositivos</p>
+          <button className="primary" onClick={() => this.setState({ hasError: false })}>
+            Reintentar
           </button>
         </section>
-      )}
+      );
+    }
+    return this.props.children;
+  }
+}
 
-      {isLoadingDevices ? (
-        <p className="loading">Cargando...</p>
-      ) : (
+function Device() {
+  // useDevicesSearch maneja el estado Y el debounce
+  const { searchName, setSearchName, debouncedFilterName } = useDevicesSearch();
+  
+  return (
+    <main className="devices-container">
+      <DeviceErrorBoundary>
         <section className="devices-content">
+          {/* Search siempre visible */}
           <article className="devices-content-header">
-            <h3>Lista de dispositivos</h3>
+            <h3>Dispositivos</h3>
             <Search valueSearch={searchName} setValue={setSearchName} />
           </article>
-          <DeviceList devices={devices} />
+
+          {/* Suspense - pasa el valor debounced */}
+          <Suspense fallback={<DeviceListSkeleton count={6} />}>
+            <DeviceContent debouncedSearch={debouncedFilterName} />
+          </Suspense>
         </section>
-      )}
+      </DeviceErrorBoundary>
     </main>
   );
+}
+
+function DeviceContent({ debouncedSearch }) {
+  // Solo recibe el valor debounced, no maneja estado
+  const { devices } = useDevices(debouncedSearch);
+  return <DeviceList devices={devices} />;
 }
 
 export default Device;

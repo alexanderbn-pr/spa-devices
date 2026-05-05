@@ -4,3 +4,5 @@ node_modules
 projects/**/.DS_Store
 projects/**/dist
 yarn.lock
+.agents/*
+dist/*

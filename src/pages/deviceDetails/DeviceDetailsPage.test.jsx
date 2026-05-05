@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -8,6 +7,7 @@ import { useDeviceDetails as useDeviceDetailsOriginal } from '../../hooks/useDev
 import { useCart as useCartOriginal } from '../../hooks/useCart';
 
 import { mockUseDeviceDetails } from '../../hooks/mocks/useDeviceDetailsMocks';
+
 const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {
@@ -24,7 +24,7 @@ function renderWithQueryClient(ui) {
   );
 }
 
-//Carga un id de dispositivo
+// Mock de react-router-dom para obtener el id del dispositivo
 vi.mock('react-router-dom', async () => {
   const actual = await import('react-router-dom');
   return {
@@ -33,6 +33,7 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
+// Mock de los hooks con vi.fn()
 vi.mock('../../hooks/useDeviceDetails');
 vi.mock('../../hooks/useCart');
 
@@ -42,13 +43,14 @@ describe('DeviceDetails', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    
+    // Usar vi.fn() con mockReturnValue en lugar de mockReturnValueOnce en loops
     useDeviceDetailsMock = vi.fn().mockReturnValue({ ...mockUseDeviceDetails });
     useCartMock = vi.fn().mockReturnValue({
       addToCart: vi.fn(),
       isLoadingAddingCart: false,
     });
 
-    // Sobrescribimos los mocks
     useDeviceDetailsOriginal.mockImplementation(useDeviceDetailsMock);
     useCartOriginal.mockImplementation(useCartMock);
   });

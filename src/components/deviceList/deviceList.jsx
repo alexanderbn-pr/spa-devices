@@ -1,21 +1,21 @@
-import './device-list.scss';
-
-import React from 'react';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
+import Device from './device';
+import '../deviceList/device-list.scss';
 
-import Device from '../deviceList/device';
 
-const DeviceList = ({ devices }) => {
+const DeviceList = memo(({ devices }) => {
   return (
     <section className="devices-list">
-      {devices.length > 0 &&
-        devices.map((device) => <Device device={device} key={device.id} />)}
+      {devices.map((device) => (
+        <Device device={device} key={device.id} />
+      ))}
     </section>
   );
-};
+});
 
 DeviceList.propTypes = {
   devices: PropTypes.array.isRequired,
 };
 
-export default React.memo(DeviceList);
+export default DeviceList;

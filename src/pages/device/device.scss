@@ -1,10 +1,46 @@
 @use '../../style/mixins.scss' as *;
 
+/// Device Page - Apple Clean Layout
+.devices-container {
+  @include d-flex(column, flex-start, center, 0);
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 24px;
+}
+
+/// Content area with centered layout (Apple 980px max)
 .devices-content {
-  @include d-flex(column, center, center, 20px);
-  padding-top: 1vh;
+  @include d-flex(column, flex-start, flex-start, 24px);
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+
+  // Header with title and search aligned
   &-header {
     @include d-flex(row, space-between, center);
-    width: 90vw;
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 8px;
+
+    h3 {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--color-text-dark);
+      margin: 0;
+    }
+  }
+}
+
+/// Error state - Apple clean styling
+.error-message {
+  text-align: center;
+  padding: 48px 24px;
+  
+  p {
+    color: var(--color-text-secondary);
+    font-size: 17px;
+    margin-bottom: 16px;
   }
 }
