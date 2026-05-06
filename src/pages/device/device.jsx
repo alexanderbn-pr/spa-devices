@@ -2,10 +2,11 @@
 
 import { Component } from 'react';
 import { Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { useDevices } from '../../hooks/useDevices';
 import { useDevicesSearch } from '../../hooks/useDevicesSearch';
 import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
-import DeviceList from '../../components/deviceList/DeviceList';
+import DeviceList from '../../components/deviceList/deviceList';
 import Search from '../../components/search/Search';
 import './device.scss';
 
@@ -46,7 +47,12 @@ function Device() {
           {/* Search siempre visible */}
           <article className="devices-content-header">
             <h3>Dispositivos</h3>
-            <Search valueSearch={searchName} setValue={setSearchName} />
+            <div className="header-actions">
+              <Link to="/device-table" className="btn-view-table">
+                Ver tabla
+              </Link>
+              <Search valueSearch={searchName} setValue={setSearchName} />
+            </div>
           </article>
 
           {/* Suspense - pasa el valor debounced */}

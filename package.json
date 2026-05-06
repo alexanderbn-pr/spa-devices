@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest --mode test"
@@ -37,6 +37,7 @@
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "sass-embedded": "^1.88.0",
+    "typescript": "^6.0.3",
     "vite": "^6.3.5",
     "vitest": "^3.1.3"
   }

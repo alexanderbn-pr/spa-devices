@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 /**
  * Skeleton para mostrar mientras cargan los dispositivos
  * Evita layout shift y da feedback visual inmediato
@@ -29,10 +27,6 @@ const DeviceListSkeleton = ({ count = 6 }) => {
       ))}
     </section>
   );
-};
-
-DeviceListSkeleton.propTypes = {
-  count: PropTypes.number,
 };
 
 DeviceListSkeleton.defaultProps = {

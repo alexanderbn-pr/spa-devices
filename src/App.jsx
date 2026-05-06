@@ -11,6 +11,7 @@ import Header from './components/header/header';
 // Code splitting por ruta - cada página se carga solo cuando se necesita
 const Device = lazy(() => import('./pages/device/device'));
 const DeviceDetails = lazy(() => import('./pages/deviceDetails/deviceDetails'));
+const DeviceTable = lazy(() => import('./pages/device-table/DeviceTablePage'));
 
 // Componente de carga para Suspense
 function LoadingFallback() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Navigate to="/device" replace />} />
           <Route path="/device" element={<Device />} />
           <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
+          <Route path="/device-table" element={<DeviceTable />} />
         </Routes>
       </Suspense>
     </Router>

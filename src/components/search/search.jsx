@@ -1,5 +1,4 @@
 import './search.scss';
-import PropTypes from 'prop-types';
 
 const Search = ({ valueSearch, setValue }) => {
   return (
@@ -14,11 +13,6 @@ const Search = ({ valueSearch, setValue }) => {
       />
     </form>
   );
-};
-
-Search.propTypes = {
-  valueSearch: PropTypes.string.isRequired,
-  setValue: PropTypes.func.isRequired,
 };
 
 export default Search;

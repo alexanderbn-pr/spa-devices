@@ -5,4 +5,5 @@ projects/**/.DS_Store
 projects/**/dist
 yarn.lock
 .agents/*
+.opencode/*
 dist/*

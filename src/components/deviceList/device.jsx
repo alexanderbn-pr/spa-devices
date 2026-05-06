@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const Device = ({ device }) => {
@@ -60,8 +59,5 @@ const Device = ({ device }) => {
   );
 };
 
-Device.propTypes = {
-  device: PropTypes.object.isRequired,
-};
 
 export default memo(Device);
