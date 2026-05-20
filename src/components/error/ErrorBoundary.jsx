@@ -12,7 +12,7 @@ import './ErrorBoundary.scss';
 function ErrorBoundary({ children, fallback, onReset, level = 'section' }) {
   const { t } = useTranslation();
   const [hasError, setHasError] = useState(false);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
 
   const handleReset = () => {
     setHasError(false);
