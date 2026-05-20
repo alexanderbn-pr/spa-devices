@@ -1,6 +1,5 @@
-@use '../../style/mixins.scss' as *;
+@use '../../../../style/mixins.scss' as *;
 
-/// Device Page - Apple Clean Layout
 .devices-container {
   @include d-flex(column, flex-start, center, 0);
   width: 100%;
@@ -8,14 +7,12 @@
   padding: 24px;
 }
 
-/// Content area with centered layout (Apple 980px max)
 .devices-content {
   @include d-flex(column, flex-start, flex-start, 24px);
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
 
-  // Header with title and search aligned
   &-header {
     @include d-flex(row, space-between, center);
     width: 100%;
@@ -60,7 +57,6 @@
   }
 }
 
-/// Error state - Apple clean styling
 .error-message {
   text-align: center;
   padding: 48px 24px;

@@ -1,6 +1,5 @@
-@use '../../style/mixins.scss' as *;
+@use '../../../../style/mixins.scss' as *;
 
-/// Device Details Page - Apple Premium Product Layout
 .details-view {
   @include d-flex(row, flex-start, 48px);
   width: 100%;
@@ -9,9 +8,6 @@
   padding: 24px;
   align-items: flex-start;
 
-  // ─────────────────────────────
-  // Product Image Section
-  // ─────────────────────────────
   &-image {
     @include d-flex(column, center, center, 16px);
     width: 50%;
@@ -36,7 +32,6 @@
       }
     }
 
-    // Price together with image - Apple style
     .image-price {
       @include d-flex(row, center, center, 4px);
       
@@ -56,15 +51,11 @@
     }
   }
 
-  // ─────────────────────────────
-  // Product Details Side
-  // ─────────────────────────────
   &-side {
     @include d-flex(column, flex-start, flex-start, 24px);
     flex: 1;
     align-self: flex-start;
 
-    // Header
     &-header {
       @include d-flex(column, flex-start, flex-start, 8px);
       padding-bottom: 24px;
@@ -87,7 +78,6 @@
       }
     }
 
-    // Specs
     &-specs {
       @include d-flex(column, flex-start, flex-start, 0);
       width: 100%;
@@ -119,7 +109,6 @@
       }
     }
 
-    // Color
     &-color {
       @include d-flex(column, flex-start, flex-start, 12px);
       width: 100%;
@@ -171,7 +160,6 @@
       }
     }
 
-    // Storage
     &-storage {
       @include d-flex(column, flex-start, flex-start, 12px);
       width: 100%;
@@ -216,7 +204,6 @@
       }
     }
 
-    // Actions
     &-actions {
       @include d-flex(column, flex-start, flex-start, 16px);
       width: 100%;
@@ -308,9 +295,6 @@
     }
   }
 
-  // ─────────────────────────────
-  // Responsive
-  // ─────────────────────────────
   @include respond(tablet) {
     flex-direction: column;
     align-items: center;

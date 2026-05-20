@@ -2,12 +2,12 @@
 
 import './device-details.scss';
 import { useParams, Link } from 'react-router-dom';
-import { useDeviceDetails } from '../../hooks/useDeviceDetails';
-import { CURRENCY, WEIGHT, UNKNOWN } from '../../constants';
-import { useCart } from '../../hooks/useCart';
-import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
+import { useDeviceDetails } from '../../../../hooks/useDeviceDetails';
+import { CURRENCY, WEIGHT, UNKNOWN } from '../../../../constants';
+import { useCart } from '../../../../hooks/useCart';
+import { DeviceListSkeleton } from '../../../../components/deviceList/DeviceListSkeleton';
 
-const DeviceDetails = () => {
+const DeviceDetailsPage = () => {
   const { id } = useParams();
   const {
     deviceDetails,
@@ -191,4 +191,4 @@ const DeviceDetails = () => {
   );
 };
 
-export default DeviceDetails;
+export default DeviceDetailsPage;

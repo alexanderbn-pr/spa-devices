@@ -2,15 +2,15 @@
 
 import { Suspense } from 'react';
 import { Link } from 'react-router-dom';
-import { useDevices } from '../../hooks/useDevices';
-import { useDevicesSearch } from '../../hooks/useDevicesSearch';
-import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
-import DeviceList from '../../components/deviceList/deviceList';
-import Search from '../../components/search/Search';
-import ErrorBoundary from '../../components/error/ErrorBoundary';
+import { useDevices } from '../../../../hooks/useDevices';
+import { useDevicesSearch } from '../../../../hooks/useDevicesSearch';
+import { DeviceListSkeleton } from '../../../../components/deviceList/DeviceListSkeleton';
+import DeviceList from '../../../../components/deviceList/deviceList';
+import Search from '../../../../components/search/Search';
+import ErrorBoundary from '../../../../components/error/ErrorBoundary';
 import './device.scss';
 
-function Device() {
+function DevicePage() {
   // useDevicesSearch maneja el estado Y el debounce
   const { searchName, setSearchName, debouncedFilterName } = useDevicesSearch();
   
@@ -45,4 +45,4 @@ function DeviceContent({ debouncedSearch }) {
   return <DeviceList devices={devices} />;
 }
 
-export default Device;
+export default DevicePage;

@@ -5,10 +5,10 @@
 
 import { Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDevices } from '../../hooks/useDevices';
-import DeviceTable from '../../components/DeviceTable/DeviceTable';
-import { DeviceTableSkeleton } from '../../components/deviceTable/DeviceTableSkeleton';
-import ErrorBoundary from '../../components/error/ErrorBoundary';
+import { useDevices } from '../../../../hooks/useDevices';
+import DeviceTable from '../../../../components/deviceTable/DeviceTable';
+import { DeviceTableSkeleton } from '../../../../components/deviceTable/DeviceTableSkeleton';
+import ErrorBoundary from '../../../../components/error/ErrorBoundary';
 import './DeviceTablePage.scss';
 
 /**

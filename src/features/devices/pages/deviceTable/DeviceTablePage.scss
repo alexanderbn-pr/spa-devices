@@ -1,4 +1,4 @@
-@use '../../style/mixins.scss' as *;
+@use '../../../../style/mixins.scss' as *;
 
 .device-table-container {
   @include d-flex(column, flex-start, center, 0);

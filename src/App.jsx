@@ -15,9 +15,9 @@ import { ToastRenderer } from './components/toast/ToastProvider';
 import './i18n';
 
 // Code splitting por ruta - cada página se carga solo cuando se necesita
-const Device = lazy(() => import('./pages/device/device'));
-const DeviceDetails = lazy(() => import('./pages/deviceDetails/deviceDetails'));
-const DeviceTable = lazy(() => import('./pages/device-table/DeviceTablePage'));
+const Device = lazy(() => import('./features/devices/pages/device/DevicePage'));
+const DeviceDetails = lazy(() => import('./features/devices/pages/deviceDetails/DeviceDetailsPage'));
+const DeviceTable = lazy(() => import('./features/devices/pages/deviceTable/DeviceTablePage'));
 
 // Componente de carga para Suspense
 function LoadingFallback() {
