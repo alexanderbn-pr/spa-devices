@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useDevices } from '../../../../hooks/useDevices';
 import { useDevicesSearch } from '../../../../hooks/useDevicesSearch';
 import { DeviceListSkeleton } from '../../../../components/deviceList/DeviceListSkeleton';
@@ -11,7 +12,7 @@ import ErrorBoundary from '../../../../components/error/ErrorBoundary';
 import './device.scss';
 
 function DevicePage() {
-  // useDevicesSearch maneja el estado Y el debounce
+  const { t } = useTranslation();
   const { searchName, setSearchName, debouncedFilterName } = useDevicesSearch();
   
   return (
@@ -20,10 +21,10 @@ function DevicePage() {
         <section className="devices-content">
           {/* Search siempre visible */}
           <article className="devices-content-header">
-            <h3>Dispositivos</h3>
+            <h3>{t('nav.devices')}</h3>
             <div className="header-actions">
               <Link to="/device-table" className="btn-view-table">
-                Ver tabla
+                {t('device.viewTable')}
               </Link>
               <Search valueSearch={searchName} setValue={setSearchName} />
             </div>
@@ -40,9 +41,14 @@ function DevicePage() {
 }
 
 function DeviceContent({ debouncedSearch }) {
-  // Solo recibe el valor debounced, no maneja estado
   const { devices } = useDevices(debouncedSearch);
-  return <DeviceList devices={devices} />;
+  const { setSearchName } = useDevicesSearch();
+  
+  const handleClearFilters = () => {
+    setSearchName('');
+  };
+
+  return <DeviceList devices={devices} onClearFilters={handleClearFilters} />;
 }
 
 export default DevicePage;

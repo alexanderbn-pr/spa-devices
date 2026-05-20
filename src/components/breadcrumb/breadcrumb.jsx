@@ -1,11 +1,13 @@
 'use client';
 
 import { Link, useLocation, useMatch } from 'react-router-dom';
-import { useDeviceDetails } from '../../hooks/useDeviceDetails'; // importa tu hook
+import { useTranslation } from 'react-i18next';
+import { useDeviceDetails } from '../../hooks/useDeviceDetails';
 
 import './breadcrumb.scss';
 
 const Breadcrumbs = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const match = useMatch('/deviceDetails/:id');
   const id = match?.params?.id;
@@ -16,7 +18,7 @@ const Breadcrumbs = () => {
     return (
       <nav className="breadcrumb">
         <strong>
-          <span>Dispositivos</span>
+          <span>{t('nav.devices')}</span>
         </strong>
       </nav>
     );
@@ -27,7 +29,7 @@ const Breadcrumbs = () => {
 
     return (
       <nav className="breadcrumb">
-        <Link to="/device">Dispositivos</Link>
+        <Link to="/device">{t('nav.devices')}</Link>
         <span> / </span>
         <strong>
           <span>{model}</span>

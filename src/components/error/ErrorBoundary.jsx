@@ -2,6 +2,7 @@
 
 import { Component } from 'react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './ErrorBoundary.scss';
 
 /**
@@ -9,6 +10,7 @@ import './ErrorBoundary.scss';
  * Uses a class wrapper internally for lifecycle access (componentDidCatch equivalent)
  */
 function ErrorBoundary({ children, fallback, onReset, level = 'section' }) {
+  const { t } = useTranslation();
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState(null);
 
@@ -26,16 +28,16 @@ function ErrorBoundary({ children, fallback, onReset, level = 'section' }) {
     return (
       <section className={`error-state ${level}`}>
         <p className="error-message">
-          {error ? 'Ha ocurrido un error al cargar el contenido' : 'Error al cargar'}
+          {t('error.generic')}
         </p>
         <button className="retry-button" onClick={handleReset}>
-          Reintentar
+          {t('error.retry')}
         </button>
       </section>
     );
   }
 
-  return <ErrorBoundaryWrapper setHasError={setHasError} setError={setError}>{children}</ErrorBoundaryWrapper>;
+  return <ErrorBoundaryWrapper setHasError={setHasError} setError={setError} t={t}>{children}</ErrorBoundaryWrapper>;
 }
 
 /**
@@ -58,14 +60,15 @@ class ErrorBoundaryWrapper extends Component {
   }
 
   render() {
+    const { t } = this.props;
     if (this.state.hasError) {
       this.props.setHasError(true);
       this.props.setError(this.state.hasError);
       return (
         <section className="error-state section">
-          <p className="error-message">Error al cargar el contenido</p>
+          <p className="error-message">{t('error.generic')}</p>
           <button className="retry-button" onClick={() => this.props.setHasError(false)}>
-            Reintentar
+            {t('error.retry')}
           </button>
         </section>
       );

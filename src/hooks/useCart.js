@@ -3,6 +3,7 @@ import { fetchAddDeviceCart } from '../services/postAddDeviceCart';
 import { useCartContext } from './useCartContext';
 import { queryKeys } from '../lib/query-keys';
 import { useToast } from './useToast';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Hook para añadir dispositivo al carrito
@@ -11,6 +12,7 @@ import { useToast } from './useToast';
 export const useCart = () => {
   const { cartItemsCount, setCartItemsCount } = useCartContext();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
 
   const {
@@ -34,14 +36,14 @@ export const useCart = () => {
     },
     // Mostrar toast de éxito
     onSuccess: () => {
-      toast.success('Añadido al carrito');
+      toast.success(t('cart.added'));
     },
     // Rollback si hay error y mostrar toast de error
     onError: (err, variables, context) => {
       if (context?.previousCount !== undefined) {
         setCartItemsCount(context.previousCount);
       }
-      toast.error('Error al añadir al carrito');
+      toast.error(t('cart.error'));
     },
     // Invalidar caché al final
     onSettled: () => {

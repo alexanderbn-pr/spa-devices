@@ -3,9 +3,13 @@
  * Evita layout shift y da feedback visual inmediato
  * Se usa como fallback de Suspense
  */
+import { useTranslation } from 'react-i18next';
+
 const DeviceListSkeleton = ({ count = 6 }) => {
+  const { t } = useTranslation();
+
   return (
-    <section className="devices-list">
+    <section className="devices-list" aria-busy="true" aria-label={t('loadingDevices')}>
       {Array.from({ length: count }).map((_, index) => (
         <div
           key={index}

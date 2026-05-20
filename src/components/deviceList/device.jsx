@@ -1,8 +1,10 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Device = ({ device }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <article
@@ -10,7 +12,7 @@ const Device = ({ device }) => {
       onClick={() => navigate(`/deviceDetails/${device.id}`)}
       role="button"
       tabIndex={0}
-      aria-label={`Ver ${device.brand} ${device.model}`}
+      aria-label={`${t('device.viewDetails')} ${device.brand} ${device.model}`}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           navigate(`/deviceDetails/${device.id}`);
@@ -48,12 +50,11 @@ const Device = ({ device }) => {
       </div>
 
       <div className="device-card-cta">
-        <span className="cta-text">Ver detalles</span>
+        <span className="cta-text">{t('device.viewDetails')}</span>
         <span className="cta-arrow" aria-hidden="true">›</span>
       </div>
     </article>
   );
 };
-
 
 export default memo(Device);

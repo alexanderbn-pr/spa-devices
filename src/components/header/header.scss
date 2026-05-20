@@ -58,4 +58,8 @@
       border-radius: 9px;
     }
   }
+
+  &-actions {
+    @include d-flex(row, flex-end, center, 16px);
+  }
 }

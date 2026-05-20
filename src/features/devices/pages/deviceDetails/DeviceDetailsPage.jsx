@@ -2,6 +2,7 @@
 
 import './device-details.scss';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useDeviceDetails } from '../../../../hooks/useDeviceDetails';
 import { CURRENCY, WEIGHT, UNKNOWN } from '../../../../constants';
 import { useCart } from '../../../../hooks/useCart';
@@ -9,6 +10,7 @@ import { DeviceListSkeleton } from '../../../../components/deviceList/DeviceList
 
 const DeviceDetailsPage = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
   const {
     deviceDetails,
     isLoadingDeviceDetails,
@@ -40,17 +42,17 @@ const DeviceDetailsPage = () => {
     return (
       <section className="error-state">
         <p className="error-message">
-          Ha habido un error al obtener los dispositivos
+          {t('error.loadingDetails')}
         </p>
         <button className="primary" onClick={() => getDeviceDetails()}>
-          Recargar detalles
+          {t('error.reload')}
         </button>
       </section>
     );
 
   return (
     <main className="details-view">
-      <section className="details-view-image" aria-label="Imagen del producto">
+      <section className="details-view-image" aria-label={t('common.productImage')}>
         <div className="image-container">
           <img 
             src={deviceDetails.imgUrl} 
@@ -71,49 +73,49 @@ const DeviceDetailsPage = () => {
         </div>
 
         {/* Specs Grid */}
-        <div className="details-view-side-specs" aria-label="Características técnicas">
+        <div className="details-view-side-specs" aria-label={t('common.technicalSpecs')}>
           <div className="spec-row">
-            <span className="spec-label">Procesador</span>
+            <span className="spec-label">{t('deviceDetails.processor')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.cpu)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Memoria RAM</span>
+            <span className="spec-label">{t('deviceDetails.ram')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.ram)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Almacenamiento</span>
+            <span className="spec-label">{t('deviceDetails.storage')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.internalMemory?.[0])}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Sistema operativo</span>
+            <span className="spec-label">{t('deviceDetails.os')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.os)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Pantalla</span>
+            <span className="spec-label">{t('deviceDetails.display')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.displayResolution)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Batería</span>
+            <span className="spec-label">{t('deviceDetails.battery')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.battery)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Cámara principal</span>
+            <span className="spec-label">{t('deviceDetails.camera')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.primaryCamera?.[0])}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Dimensiones</span>
+            <span className="spec-label">{t('deviceDetails.dimensions')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.dimentions)}</span>
           </div>
           <div className="spec-row">
-            <span className="spec-label">Peso</span>
+            <span className="spec-label">{t('deviceDetails.weight')}</span>
             <span className="spec-value">{formatDetail(deviceDetails.weight, WEIGHT)}</span>
           </div>
         </div>
 
         {/* Color Selector - Visual swatches */}
         <div className="details-view-side-color">
-          <span className="color-label">Color</span>
-          <div className="color-options" role="radiogroup" aria-label="Seleccionar color">
+          <span className="color-label">{t('deviceDetails.selectColor')}</span>
+          <div className="color-options" role="radiogroup" aria-label={t('deviceDetails.selectColor')}>
             {colors.map((color) => (
               <button
                 key={color.value}
@@ -130,8 +132,8 @@ const DeviceDetailsPage = () => {
 
         {/* Storage Selector - Buttons */}
         <div className="details-view-side-storage">
-          <span className="storage-label">Almacenamiento</span>
-          <div className="storage-options" role="radiogroup" aria-label="Seleccionar almacenamiento">
+          <span className="storage-label">{t('deviceDetails.selectStorage')}</span>
+          <div className="storage-options" role="radiogroup" aria-label={t('deviceDetails.selectStorage')}>
             {storages.map((storage) => (
               <button
                 key={storage.value}
@@ -150,21 +152,21 @@ const DeviceDetailsPage = () => {
         <div className="details-view-side-actions">
           <div className="stock-status">
             <span className="stock-dot" aria-hidden="true"></span>
-            <span>En stock - Entrega en 24-48h</span>
+            <span>{t('deviceDetails.inStock')}</span>
           </div>
 
           <button
             className="add-to-cart-btn"
             disabled={!storageSelected || !colorSelected || isLoadingAddingCart}
             onClick={() => handleAddDeviceCart(id, colorSelected, storageSelected)}
-            aria-label={isLoadingAddingCart ? 'Añadiendo al carrito...' : 'Añadir al carrito'}
+            aria-label={isLoadingAddingCart ? t('cart.adding') : t('cart.add')}
           >
             {isLoadingAddingCart ? (
-              'Añadiendo...'
+              t('cart.adding')
             ) : (
               <>
                 <span className="btn-icon" aria-hidden="true">🛒</span>
-                <span>Añadir al carrito</span>
+                <span>{t('cart.add')}</span>
               </>
             )}
           </button>
@@ -173,17 +175,17 @@ const DeviceDetailsPage = () => {
           <div className="delivery-info">
             <div className="delivery-option">
               <span className="delivery-icon" aria-hidden="true">📦</span>
-              <span>Envío gratis en 24-48 horas</span>
+              <span>{t('deviceDetails.freeShipping')}</span>
             </div>
             <div className="delivery-option">
               <span className="delivery-icon" aria-hidden="true">🏪</span>
-              <span>Recogida en tienda gratis</span>
+              <span>{t('deviceDetails.freePickup')}</span>
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="breadcrumb" aria-label="Navegación">
-            <Link to="/device">Volver a dispositivos</Link>
+          <nav className="breadcrumb" aria-label={t('deviceDetails.backToDevices')}>
+            <Link to="/device">{t('deviceDetails.backToDevices')}</Link>
           </nav>
         </div>
       </section>

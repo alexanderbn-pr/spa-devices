@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Header from './components/header/header';
 import ErrorBoundary from './components/error/ErrorBoundary';
@@ -21,14 +22,16 @@ const DeviceTable = lazy(() => import('./features/devices/pages/deviceTable/Devi
 
 // Componente de carga para Suspense
 function LoadingFallback() {
-  return <div className="loading">Cargando...</div>;
+  const { t } = useTranslation();
+  return <div className="loading">{t('loading')}</div>;
 }
 
 // Global fallback for uncaught errors
 function GlobalErrorFallback() {
+  const { t } = useTranslation();
   return (
     <div className="loading">
-      Ha ocurrido un error inesperado. Por favor, recarga la página.
+      {t('error.generic')}
     </div>
   );
 }

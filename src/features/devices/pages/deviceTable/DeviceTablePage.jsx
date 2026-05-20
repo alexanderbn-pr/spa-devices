@@ -1,10 +1,10 @@
 /**
  * DeviceTablePage - Página de tabla de dispositivos
- * Usa useSuspenseQuery + ErrorBoundary + Suspense como las otras páginas
  */
 
 import { Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useDevices } from '../../../../hooks/useDevices';
 import DeviceTable from '../../../../components/deviceTable/DeviceTable';
 import { DeviceTableSkeleton } from '../../../../components/deviceTable/DeviceTableSkeleton';
@@ -16,6 +16,7 @@ import './DeviceTablePage.scss';
  */
 function DeviceTablePage() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   return (
     <main className="device-table-container">
@@ -28,12 +29,12 @@ function DeviceTablePage() {
                 className="btn-back" 
                 onClick={() => navigate('/device')}
               >
-                ← Volver
+                ← {t('deviceTable.back')}
               </button>
-              <h3>Tabla de Dispositivos</h3>
+              <h3>{t('deviceTable.title')}</h3>
             </div>
             <p className="header-subtitle">
-              Vista comparar dispositivos
+              {t('deviceTable.subtitle')}
             </p>
           </article>
 
