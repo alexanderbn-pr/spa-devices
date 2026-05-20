@@ -21,12 +21,12 @@ const Header = () => {
         <img src={logo} alt="Logo" className="header-logo" />
       </Link>
       <Breadcrumbs />
-      <aside className="header-cart">
-        <img alt="cart icon" src={cart} />
+      <button className="header-cart" aria-label="Carrito de compras">
+        <img alt="ícono de carrito" src={cart} />
         {cartItemsCount > 0 && (
           <span className="header-cart-count">{cartItemsCount}</span>
         )}
-      </aside>
+      </button>
     </header>
   );
 };

@@ -9,7 +9,7 @@ const Search = ({ valueSearch, setValue }) => {
         value={valueSearch}
         onChange={(e) => setValue(e.target.value)}
         className="search-input"
-        aria-label="Buscar libro"
+        aria-label="Buscar dispositivo"
       />
     </form>
   );

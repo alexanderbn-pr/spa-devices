@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/header/header';
+import ErrorBoundary from './components/error/ErrorBoundary';
 
 // Code splitting por ruta - cada página se carga solo cuando se necesita
 const Device = lazy(() => import('./pages/device/device'));
@@ -18,18 +19,29 @@ function LoadingFallback() {
   return <div className="loading">Cargando...</div>;
 }
 
+// Global fallback for uncaught errors
+function GlobalErrorFallback() {
+  return (
+    <div className="loading">
+      Ha ocurrido un error inesperado. Por favor, recarga la página.
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
       <Header />
-      <Suspense fallback={<LoadingFallback />}>
-        <Routes>
-          <Route path="/" element={<Navigate to="/device" replace />} />
-          <Route path="/device" element={<Device />} />
-          <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
-          <Route path="/device-table" element={<DeviceTable />} />
-        </Routes>
-      </Suspense>
+      <ErrorBoundary fallback={<GlobalErrorFallback />}>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/device" replace />} />
+            <Route path="/device" element={<Device />} />
+            <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
+            <Route path="/device-table" element={<DeviceTable />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </Router>
   );
 }

@@ -17,24 +17,22 @@ const Device = ({ device }) => {
         }
       }}
     >
-      {/* Image - Product as hero */}
       <div className="device-card-image-container">
         <img
           className="device-card-image"
-          alt=""
+          alt={`${device.brand} ${device.model}`}
           src={device.imgUrl}
+          loading="lazy"
+          width={80}
+          height={80}
         />
       </div>
 
-      {/* Info */}
       <div className="device-card-content">
-        {/* Brand label - Apple style small uppercase */}
         <span className="device-card-brand">{device.brand}</span>
         
-        {/* Model */}
         <h3 className="device-card-model">{device.model}</h3>
 
-        {/* Quick specs - minimal */}
         <div className="device-card-specs">
           {device.ram && <span className="spec-tag">{device.ram}</span>}
           {device.internalMemory?.[0] && (
@@ -43,14 +41,12 @@ const Device = ({ device }) => {
           {device.os && <span className="spec-tag">{device.os}</span>}
         </div>
 
-        {/* Price - prominent */}
         <div className="device-card-price">
           <span className="price-amount">{device.price || '—'}</span>
           <span className="price-currency">€</span>
         </div>
       </div>
 
-      {/* Learn more link - Apple style pill */}
       <div className="device-card-cta">
         <span className="cta-text">Ver detalles</span>
         <span className="cta-arrow" aria-hidden="true">›</span>

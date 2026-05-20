@@ -1,6 +1,5 @@
 'use client';
 
-import { Component } from 'react';
 import { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useDevices } from '../../hooks/useDevices';
@@ -8,33 +7,8 @@ import { useDevicesSearch } from '../../hooks/useDevicesSearch';
 import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
 import DeviceList from '../../components/deviceList/deviceList';
 import Search from '../../components/search/Search';
+import ErrorBoundary from '../../components/error/ErrorBoundary';
 import './device.scss';
-
-// Error Boundary simple
-class DeviceErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <section className="error-state">
-          <p className="error-message">Error al cargar dispositivos</p>
-          <button className="primary" onClick={() => this.setState({ hasError: false })}>
-            Reintentar
-          </button>
-        </section>
-      );
-    }
-    return this.props.children;
-  }
-}
 
 function Device() {
   // useDevicesSearch maneja el estado Y el debounce
@@ -42,7 +16,7 @@ function Device() {
   
   return (
     <main className="devices-container">
-      <DeviceErrorBoundary>
+      <ErrorBoundary>
         <section className="devices-content">
           {/* Search siempre visible */}
           <article className="devices-content-header">
@@ -60,7 +34,7 @@ function Device() {
             <DeviceContent debouncedSearch={debouncedFilterName} />
           </Suspense>
         </section>
-      </DeviceErrorBoundary>
+      </ErrorBoundary>
     </main>
   );
 }
