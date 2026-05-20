@@ -15,9 +15,11 @@
     "@tanstack/react-query-devtools": "^5.76.1",
     "@testing-library/user-event": "^14.6.1",
     "@uidotdev/usehooks": "^2.4.1",
+    "i18next": "^26.2.0",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^17.0.8",
     "react-router-dom": "^7.6.0"
   },
   "devDependencies": {

@@ -1,3 +1,21 @@
 {
-  
+  "nav": {
+    "devices": "Dispositivos"
+  },
+  "cart": {
+    "add": "Añadir al carrito",
+    "added": "Añadido al carrito",
+    "error": "Error al añadir al carrito"
+  },
+  "search": {
+    "placeholder": "Buscar dispositivo..."
+  },
+  "empty": {
+    "noResults": "No se encontraron dispositivos"
+  },
+  "loading": "Cargando...",
+  "error": {
+    "retry": "Reintentar",
+    "generic": "Algo salió mal"
+  }
 }

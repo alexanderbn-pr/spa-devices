@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDeviceDetails } from '../../hooks/useDeviceDetails';
 import { CURRENCY, WEIGHT, UNKNOWN } from '../../constants';
 import { useCart } from '../../hooks/useCart';
+import { DeviceListSkeleton } from '../../components/deviceList/DeviceListSkeleton';
 
 const DeviceDetails = () => {
   const { id } = useParams();
@@ -34,7 +35,7 @@ const DeviceDetails = () => {
   const formatDetail = (value, suffix = '') =>
     value ? `${value}${suffix}` : UNKNOWN;
 
-  if (isLoadingDeviceDetails) return <div className="loading">Cargando...</div>;
+  if (isLoadingDeviceDetails) return <DeviceListSkeleton count={1} />;
   if (isErrorDeviceDetails)
     return (
       <section className="error-state">

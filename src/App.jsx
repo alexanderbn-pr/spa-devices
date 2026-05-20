@@ -8,6 +8,11 @@ import {
 
 import Header from './components/header/header';
 import ErrorBoundary from './components/error/ErrorBoundary';
+import { ToastProvider } from './contexts/ToastContext';
+import { ToastRenderer } from './components/toast/ToastProvider';
+
+// Import i18n configuration
+import './i18n';
 
 // Code splitting por ruta - cada página se carga solo cuando se necesita
 const Device = lazy(() => import('./pages/device/device'));
@@ -30,19 +35,22 @@ function GlobalErrorFallback() {
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <ErrorBoundary fallback={<GlobalErrorFallback />}>
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/device" replace />} />
-            <Route path="/device" element={<Device />} />
-            <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
-            <Route path="/device-table" element={<DeviceTable />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-    </Router>
+    <ToastProvider>
+      <Router>
+        <ToastRenderer />
+        <Header />
+        <ErrorBoundary fallback={<GlobalErrorFallback />}>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/device" replace />} />
+              <Route path="/device" element={<Device />} />
+              <Route path="/deviceDetails/:id" element={<DeviceDetails />} />
+              <Route path="/device-table" element={<DeviceTable />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </Router>
+    </ToastProvider>
   );
 }
 

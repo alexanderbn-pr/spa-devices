@@ -1,3 +1,21 @@
 {
-  
+  "nav": {
+    "devices": "Devices"
+  },
+  "cart": {
+    "add": "Add to cart",
+    "added": "Added to cart",
+    "error": "Error adding to cart"
+  },
+  "search": {
+    "placeholder": "Search device..."
+  },
+  "empty": {
+    "noResults": "No devices found"
+  },
+  "loading": "Loading...",
+  "error": {
+    "retry": "Retry",
+    "generic": "Something went wrong"
+  }
 }
