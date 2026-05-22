@@ -1,16 +1,15 @@
 import './DeviceTableSkeleton.scss';
 
 /**
- * Skeleton para la tabla de dispositivos
- * Se usa como fallback de Suspense mientras cargan los datos
+ * Skeleton for the device table
+ * Used as Suspense fallback while data is loading
  * @param {Object} props
- * @param {number} props.count - Número de filas a mostrar (default: 5)
+ * @param {number} props.count - Number of rows to display (default: 5)
  * @returns {JSX.Element}
  */
 function DeviceTableSkeleton({ count = 5 }) {
   return (
     <div className="device-table-skeleton">
-      {/* Header skeleton */}
       <div className="skeleton-row">
         <div className="skeleton-img" style={{ width: 80 }} />
         <div className="skeleton-text skeleton-text-long" />
@@ -21,16 +20,12 @@ function DeviceTableSkeleton({ count = 5 }) {
       {/* Skeleton rows */}
       {Array.from({ length: count }).map((_, index) => (
         <div key={index} className="skeleton-row">
-          {/* Image column - 64px */}
           <div className="skeleton-img" />
 
-          {/* Brand column */}
           <div className="skeleton-text skeleton-text-short" />
 
-          {/* Model column */}
           <div className="skeleton-text skeleton-text-long" />
 
-          {/* Price column */}
           <div className="skeleton-price" />
         </div>
       ))}

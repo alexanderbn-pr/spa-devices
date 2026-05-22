@@ -1,14 +1,14 @@
 /**
- * DeviceTable - Tabla específica para dispositivos
- * Usa la tabla genérica con columnas predefinidas para Dispositivos
+ * DeviceTable — Device-specific table
+ * Uses the generic table with predefined columns for devices
  */
 
 import { useNavigate } from 'react-router-dom';
 import { Table } from '../Table/Table';
 
 /**
- * Configuración de columnas para la tabla de dispositivos
- * Columnas: imgUrl, brand, model, price
+ * Column configuration for the device table
+ * Columns: imgUrl, brand, model, price
  */
 const deviceColumns = [
   {
@@ -47,20 +47,18 @@ const deviceColumns = [
 ];
 
 /**
- * Tabla de dispositivos
+ * Device table
  * @param {Object} props
- * @param {Array} props.devices - Lista de dispositivos
+ * @param {Array} props.devices - List of devices
  * @returns {JSX.Element}
  */
 export function DeviceTable({ devices }) {
   const navigate = useNavigate();
   
-  // Navegar a deviceDetails con el ID del dispositivo
   const handleRowClick = (device) => {
     navigate(`/deviceDetails/${device.id}`);
   };
   
-  // Configuración de la tabla (sin modificar las columnas base)
   const tableConfig = {
     data: devices,
     columns: deviceColumns,

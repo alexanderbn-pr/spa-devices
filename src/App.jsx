@@ -15,12 +15,12 @@ import { ToastRenderer } from './components/toast/ToastProvider';
 // Import i18n configuration
 import './i18n';
 
-// Code splitting por ruta - cada página se carga solo cuando se necesita
+// Route-based code splitting — each page loads only when needed
 const Device = lazy(() => import('./features/devices/pages/device/DevicePage'));
 const DeviceDetails = lazy(() => import('./features/devices/pages/deviceDetails/DeviceDetailsPage'));
 const DeviceTable = lazy(() => import('./features/devices/pages/deviceTable/DeviceTablePage'));
 
-// Componente de carga para Suspense
+// Loading fallback for Suspense
 function LoadingFallback() {
   const { t } = useTranslation();
   return <div className="loading">{t('loading')}</div>;

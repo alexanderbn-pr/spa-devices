@@ -1,5 +1,5 @@
 /**
- * Skeleton para mostrar mientras cargan los dispositivos
+ * Skeleton shown while devices are loading
  */
 import { useTranslation } from 'react-i18next';
 
@@ -14,16 +14,13 @@ const DeviceListSkeleton = ({ count = 8 }) => {
           className="device-card device-card-skeleton"
           aria-hidden="true"
         >
-          {/* Image skeleton */}
           <div className="device-card-image-skeleton" />
 
-          {/* Info skeleton */}
           <div className="device-card-info-skeleton">
             <div className="device-card-model-skeleton" />
             <div className="device-card-model-skeleton model-short" />
           </div>
 
-          {/* Price skeleton */}
           <div className="device-card-price-skeleton" />
         </div>
       ))}

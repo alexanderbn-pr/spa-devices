@@ -3,10 +3,10 @@ import { fetchDeviceDetails } from '../services/getDeviceDetails';
 import { queryKeys } from '../lib/query-keys';
 
 /**
- * useBreadcrumbDevice — Hook TanStack Query mínimo para el breadcrumb.
- * Reusa la misma queryKey que useDeviceDetails para aprovechar la caché.
+ * useBreadcrumbDevice — Minimal TanStack Query hook for the breadcrumb.
+ * Reuses the same queryKey as useDeviceDetails for cache sharing.
  *
- * @param {string} id - ID del dispositivo
+ * @param {string} id - Device ID
  * @returns {{ modelName: string | undefined, isLoading: boolean }}
  */
 export const useBreadcrumbDevice = (id) => {

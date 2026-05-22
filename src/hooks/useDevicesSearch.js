@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDebounce } from '@uidotdev/usehooks';
 
 /**
- * Hook para el estado de búsqueda
- * Maneja el estado + debounce - se usa fuera de Suspense
+ * Hook for search state
+ * Manages state + debounce — used outside Suspense
  * 
  * @returns {{
  *   searchName: string,

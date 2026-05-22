@@ -5,23 +5,23 @@ import { fetchDevices } from '../services/getDevices';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { devicesMock } from './mocks/useDevicesMocks';
 
-// Mock del debounce
+// Debounce mock
 vi.mock('@uidotdev/usehooks', () => ({
   useDebounce: (v) => v,
 }));
 
-// Mock del servicio
+// Service mock
 vi.mock('../services/getDevices', () => ({
   fetchDevices: vi.fn(),
 }));
 
-// Wrapper con suspense
+// Suspense wrapper
 function getWrapper() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
         retry: false,
-        suspense: true, // Habilitar suspense
+        suspense: true, // Enable suspense
       },
     },
   });
@@ -36,20 +36,20 @@ describe('useDevices', () => {
     vi.clearAllMocks();
   });
 
-  it('devuelve los dispositivos del servicio', async () => {
+  it('returns devices from the service', async () => {
     vi.mocked(fetchDevices).mockResolvedValue(devicesMock);
 
     const { result } = renderHook(() => useDevices(), {
       wrapper: getWrapper(),
     });
 
-    // Con suspense, el componente se suspende hasta que los datos lleguen
+    // With suspense, the component suspends until data arrives
     await waitFor(() => {
       expect(result.current.devices).toEqual(devicesMock);
     });
   });
 
-  it('filtra dispositivos por nombre de marca o modelo', async () => {
+  it('filters devices by brand or model name', async () => {
     vi.mocked(fetchDevices).mockResolvedValue(devicesMock);
 
     const { result } = renderHook(() => useDevices(), {
@@ -58,7 +58,6 @@ describe('useDevices', () => {
 
     await waitFor(() => result.current.devices !== undefined);
 
-    // Verificar que la query tiene datos
     expect(result.current.devices).toHaveLength(2);
   });
 });

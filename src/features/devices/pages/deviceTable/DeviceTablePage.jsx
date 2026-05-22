@@ -1,5 +1,5 @@
 /**
- * DeviceTablePage - Página de tabla de dispositivos
+ * DeviceTablePage — Device table page
  */
 
 import { Suspense } from 'react';
@@ -12,7 +12,7 @@ import ErrorBoundary from '../../../../components/error/ErrorBoundary';
 import './DeviceTablePage.scss';
 
 /**
- * Componente principal de la página
+ * Main page component
  */
 function DeviceTablePage() {
   const navigate = useNavigate();
@@ -22,7 +22,6 @@ function DeviceTablePage() {
     <main className="device-table-container">
       <ErrorBoundary>
         <section className="device-table-content">
-          {/* Título con botón de volver */}
           <article className="device-table-header">
             <div className="header-left">
               <button 
@@ -38,7 +37,6 @@ function DeviceTablePage() {
             </p>
           </article>
 
-          {/* Suspense con los datos */}
           <Suspense fallback={<DeviceTableSkeleton count={5} />}>
             <DeviceTableContent />
           </Suspense>
@@ -49,7 +47,7 @@ function DeviceTablePage() {
 }
 
 /**
- * Contenido que consume los datos (se suspende)
+ * Content that consumes the data (suspends)
  */
 function DeviceTableContent() {
   const { devices } = useDevices('');

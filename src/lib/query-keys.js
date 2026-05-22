@@ -16,6 +16,5 @@ export const queryKeys = {
   },
 };
 
-// Freeze todo para hacerlo inmutable
 Object.freeze(queryKeys.devices);
 Object.freeze(queryKeys.cart);

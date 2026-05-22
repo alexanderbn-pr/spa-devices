@@ -17,7 +17,6 @@ function DevicePage() {
     <main className="devices-container">
       <ErrorBoundary>
         <section className="devices-content">
-          {/* Search siempre visible */}
           <article className="devices-content-header">
             <h3>{t('nav.devices')}</h3>
             <div className="header-actions">
@@ -28,7 +27,6 @@ function DevicePage() {
             </div>
           </article>
 
-          {/* Suspense - pasa el valor debounced */}
           <Suspense fallback={<DeviceListSkeleton count={6} />}>
             <DeviceContent debouncedSearch={debouncedFilterName} />
           </Suspense>

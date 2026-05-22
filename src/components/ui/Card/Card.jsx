@@ -48,7 +48,6 @@ function CardFooter({ children }) {
   return <footer className="card__footer">{children}</footer>;
 }
 
-// Compound component pattern
 Card.Image = CardImage;
 Card.Body = CardBody;
 Card.Title = CardTitle;

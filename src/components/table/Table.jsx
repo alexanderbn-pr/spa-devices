@@ -1,5 +1,5 @@
 /**
- * Tabla genérica reusable con sorting, filtering y pagination
+ * Reusable generic table with sorting, filtering and pagination
  */
 
 import { useTranslation } from 'react-i18next';
@@ -7,9 +7,9 @@ import { useTableState } from '../../hooks/useTableState';
 import './Table.scss';
 
 /**
- * Componente de tabla genérica
+ * Generic table component
  * @param {Object} props
- * @param {import('../../types/table').TableConfig<T>} props.config - configuración de tabla
+ * @param {import('../../types/table').TableConfig<T>} props.config - table configuration
  * @returns {JSX.Element}
  */
 export function Table({ config }) {
@@ -18,7 +18,6 @@ export function Table({ config }) {
 
   return (
     <div className="table-wrapper">
-      {/* Controles superiores */}
       <div className="table-controls">
         {config.searchable && (
           <div className="search-container">
@@ -33,7 +32,6 @@ export function Table({ config }) {
         )}
       </div>
 
-      {/* Tabla */}
       <div className="table-container">
         <table className={`generic-table ${config.striped ? 'striped' : ''} ${config.hover ? 'hover' : ''} ${config.rowClickable ? 'row-clickable' : ''}`}>
           <thead>
@@ -83,7 +81,6 @@ export function Table({ config }) {
         </table>
       </div>
 
-      {/* Paginación */}
       {config.paginated && data.totalPages > 1 && (
         <div className="pagination">
           <button

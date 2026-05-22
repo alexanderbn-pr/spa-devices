@@ -10,9 +10,9 @@
  * @example
  * <EmptyState
  *   icon="📱"
- *   title="No hay dispositivos"
- *   description="Intenta con otra búsqueda"
- *   action={{ label: 'Limpiar filtros', onClick: handleClear }}
+ *   title="No devices found"
+ *   description="Try a different search"
+ *   action={{ label: 'Clear filters', onClick: handleClear }}
  * />
  */
 function EmptyState({ icon, title, description, action }) {

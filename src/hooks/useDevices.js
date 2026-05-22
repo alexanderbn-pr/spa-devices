@@ -5,11 +5,11 @@ import { queryKeys } from '../lib/query-keys';
 import { EXPIRATION } from '../constants';
 
 /**
- * Hook para obtener dispositivos
- * Usa useSuspenseQuery - se suspende hasta que cargan los datos
- * Recibe el search filtrado (ya debounced) por parámetro
+ * Hook for fetching devices
+ * Uses useSuspenseQuery — suspends until data loads
+ * Receives the already-debounced search as parameter
  * 
- * @param {string} debouncedSearch - search filtrado y debounced
+ * @param {string} debouncedSearch - filtered and debounced search
  * @returns {{ devices: array }}
  */
 export const useDevices = (debouncedSearch = '') => {
@@ -20,7 +20,7 @@ export const useDevices = (debouncedSearch = '') => {
     gcTime: EXPIRATION,
   });
 
-  // Filtrar local
+  // Local filter
   const devices = useMemo(() => {
     if (!debouncedSearch || debouncedSearch.length === 0) {
       return allDevices;

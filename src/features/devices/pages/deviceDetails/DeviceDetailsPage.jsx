@@ -68,13 +68,11 @@ const DeviceDetailsPage = () => {
       </section>
 
       <section className="details-view-side">
-        {/* Header - Brand & Model */}
         <div className="details-view-side-header">
           <span className="product-brand">{deviceDetails.brand || UNKNOWN}</span>
           <h1 className="product-model">{deviceDetails.model || UNKNOWN}</h1>
         </div>
 
-        {/* Specs Grid */}
         <div className="details-view-side-specs" aria-label={t('common.technicalSpecs')}>
           <div className="spec-row">
             <span className="spec-label">{t('deviceDetails.processor')}</span>
@@ -114,7 +112,6 @@ const DeviceDetailsPage = () => {
           </div>
         </div>
 
-        {/* Color Selector - Visual swatches */}
         <div className="details-view-side-color">
           <span className="color-label">{t('deviceDetails.selectColor')}</span>
           <div className="color-options" role="radiogroup" aria-label={t('deviceDetails.selectColor')}>
@@ -132,7 +129,6 @@ const DeviceDetailsPage = () => {
           </div>
         </div>
 
-        {/* Storage Selector - Buttons */}
         <div className="details-view-side-storage">
           <span className="storage-label">{t('deviceDetails.selectStorage')}</span>
           <div className="storage-options" role="radiogroup" aria-label={t('deviceDetails.selectStorage')}>
@@ -150,7 +146,6 @@ const DeviceDetailsPage = () => {
           </div>
         </div>
 
-        {/* Actions */}
         <div className="details-view-side-actions">
           <div className="stock-status">
             <span className="stock-dot" aria-hidden="true"></span>
@@ -173,7 +168,6 @@ const DeviceDetailsPage = () => {
             )}
           </button>
 
-          {/* Delivery info */}
           <div className="delivery-info">
             <div className="delivery-option">
               <span className="delivery-icon" aria-hidden="true">📦</span>
@@ -185,7 +179,6 @@ const DeviceDetailsPage = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <nav className="breadcrumb" aria-label={t('deviceDetails.backToDevices')}>
             <Link to="/device">{t('deviceDetails.backToDevices')}</Link>
           </nav>

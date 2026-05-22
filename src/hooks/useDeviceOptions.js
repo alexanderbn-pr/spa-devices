@@ -1,10 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
 
 /**
- * useDeviceOptions — Maneja la selección de almacenamiento y color para un dispositivo.
- * Hook separado del fetching (useDeviceDetails) para mantener separación de concerns.
+ * useDeviceOptions — Manages storage and color selection for a device.
  *
- * @param {Object|null} deviceDetails - Datos del dispositivo con internalMemory y colors
+ * @param {Object|null} deviceDetails - Device data with internalMemory and colors
  * @returns {{
  *   storages: Array<{ value: string, label: string }>,
  *   colors: Array<{ value: string, label: string }>,
@@ -36,7 +35,7 @@ export const useDeviceOptions = (deviceDetails) => {
     [deviceDetails?.colors],
   );
 
-  // Seleccionar primer valor por defecto si no hay selección
+  // Select first default value when none is selected
   useEffect(() => {
     if (storages.length > 0 && !storageSelected) {
       setStorageSelected(storages[0].value);

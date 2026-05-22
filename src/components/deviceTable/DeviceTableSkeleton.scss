@@ -2,8 +2,7 @@
 
 // ─────────────────────────────────────────
 // DeviceTableSkeleton
-// Skeleton para la tabla de dispositivos
-// Sigue el patrón de DeviceListSkeleton
+// Skeleton for the device table
 // ─────────────────────────────────────────
 
 .device-table-skeleton {
@@ -11,13 +10,11 @@
   padding: 20px;
 }
 
-// Skeleton row
 .skeleton-row {
   @include d-flex(row, flex-start, center, 12px);
   padding: 16px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
-  // Image skeleton — 64px para coincidir con DeviceTable (width: 80px en columna)
   .skeleton-img {
     width: 64px;
     height: 64px;
@@ -25,7 +22,6 @@
     flex-shrink: 0;
   }
 
-  // Text skeleton
   .skeleton-text {
     height: 16px;
     border-radius: 4px;
@@ -46,7 +42,6 @@
   }
 }
 
-// Shimmer animation
 @keyframes shimmer {
   0% {
     background-position: 200% 0;
@@ -56,7 +51,7 @@
   }
 }
 
-// Base shimmer gradient (se aplica a todos los skeletons)
+// Base shimmer gradient (applied to all skeletons)
 .skeleton-img,
 .skeleton-text,
 .skeleton-price {

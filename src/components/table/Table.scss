@@ -94,7 +94,6 @@
     tr {
       transition: background-color 0.15s ease;
       
-      // Filas clickables
       &.clickable-row {
         cursor: pointer;
         
@@ -114,14 +113,12 @@
         background: rgba(0, 0, 0, 0.02);
       }
       
-      // Hover
       &:hover {
         background: rgba(0, 0, 0, 0.04);
       }
     }
   }
   
-  // Sin datos
   .no-data {
     text-align: center;
     padding: 48px 16px;
@@ -130,7 +127,6 @@
   }
 }
 
-// Paginación
 .pagination {
   display: flex;
   justify-content: center;

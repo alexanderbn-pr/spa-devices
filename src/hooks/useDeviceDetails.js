@@ -4,9 +4,8 @@ import { queryKeys } from '../lib/query-keys';
 import { EXPIRATION } from '../constants';
 
 /**
- * Hook para obtener detalles de un dispositivo específico.
- * Solo maneja fetching con TanStack Query.
- * La selección de almacenamiento/color se maneja en useDeviceOptions.
+ * Hook for fetching details of a specific device.
+ * Only handles fetching with TanStack Query.
  */
 export const useDeviceDetails = (id) => {
   const {
