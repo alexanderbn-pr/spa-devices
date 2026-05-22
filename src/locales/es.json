@@ -56,6 +56,13 @@
     "productImage": "Imagen del producto",
     "technicalSpecs": "Características técnicas"
   },
+  "table": {
+    "searchPlaceholder": "🔍 Buscar...",
+    "noResults": "No se encontraron resultados",
+    "previous": "← Anterior",
+    "next": "Siguiente →",
+    "pageInfo": "Página {{page}} de {{totalPages}} ({{totalResults}} resultados)"
+  },
   "language": {
     "select": "Idioma",
     "es": "Español",

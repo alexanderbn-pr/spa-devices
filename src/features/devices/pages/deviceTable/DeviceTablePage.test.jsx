@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import DeviceTablePage from './DeviceTablePage';
 
 // Mock useDevices to return test data directly (avoid network calls)
-vi.mock('../../../hooks/useDevices', () => ({
+vi.mock('../../../../hooks/useDevices', () => ({
   useDevices: () => ({
     devices: [
       {

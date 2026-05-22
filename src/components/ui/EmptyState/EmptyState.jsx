@@ -1,5 +1,3 @@
-'use client';
-
 /**
  * EmptyState - Component for displaying empty/zero state messages
  *

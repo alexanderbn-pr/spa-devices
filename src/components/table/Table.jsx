@@ -1,8 +1,8 @@
 /**
  * Tabla genérica reusable con sorting, filtering y pagination
- * Sigue react-table skill patterns
  */
 
+import { useTranslation } from 'react-i18next';
 import { useTableState } from '../../hooks/useTableState';
 import './Table.scss';
 
@@ -13,6 +13,7 @@ import './Table.scss';
  * @returns {JSX.Element}
  */
 export function Table({ config }) {
+  const { t } = useTranslation();
   const { state, actions, data } = useTableState(config);
 
   return (
@@ -23,7 +24,7 @@ export function Table({ config }) {
           <div className="search-container">
             <input
               type="text"
-              placeholder="🔍 Buscar..."
+              placeholder={t('table.searchPlaceholder')}
               value={state.inputValue}
               onChange={(e) => actions.setSearch(e.target.value)}
               className="search-input"
@@ -74,7 +75,7 @@ export function Table({ config }) {
             ) : (
               <tr>
                 <td colSpan={config.columns.length} className="no-data">
-                  ⊘ No se encontraron resultados
+                  {t('table.noResults')}
                 </td>
               </tr>
             )}
@@ -90,17 +91,21 @@ export function Table({ config }) {
             disabled={state.page === 1}
             onClick={() => actions.setPage(state.page - 1)}
           >
-            ← Anterior
+            {t('table.previous')}
           </button>
           <span className="page-info">
-            Página {state.page} de {data.totalPages} ({data.totalFiltered} resultados)
+            {t('table.pageInfo', {
+              page: state.page,
+              totalPages: data.totalPages,
+              totalResults: data.totalFiltered,
+            })}
           </span>
           <button
             className="pagination-btn"
             disabled={state.page === data.totalPages}
             onClick={() => actions.setPage(state.page + 1)}
           >
-            Siguiente →
+            {t('table.next')}
           </button>
         </div>
       )}

@@ -1,5 +1,3 @@
-'use client';
-
 import './header.scss';
 import logo from '../../assets/icons/logo.png';
 import cart from '../../assets/icons/cart.png';

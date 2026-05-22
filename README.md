@@ -51,8 +51,8 @@ The application will be available at `http://localhost:5173`
 
 | Technology | Purpose |
 |------------|---------|
+| **JavaScript ES6 + PropTypes** | Core language with runtime type checking |
 | **React 19** | UI framework with concurrent features |
-| **TypeScript** | Type safety throughout |
 | **Vite** | Build tool and dev server |
 | **TanStack Query** | Server state management |
 | **React Router v7** | Client-side routing |
@@ -108,11 +108,6 @@ src/
 - `const` over `let`, early returns to avoid nesting
 - BEM methodology for SCSS class naming
 - Maximum 3 nesting levels in SCSS
-
-### TypeScript Conventions
-- Props interfaces declared above components
-- Avoid `any` — use `unknown` when type is unclear
-- Union types for discriminated states
 
 ### Component Rules
 - One component per file

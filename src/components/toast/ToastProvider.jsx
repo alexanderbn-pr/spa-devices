@@ -1,5 +1,3 @@
-'use client';
-
 import { useToastContext } from '../../contexts/ToastContext';
 import { ToastContainer } from './index';
 

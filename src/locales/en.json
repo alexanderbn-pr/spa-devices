@@ -56,6 +56,13 @@
     "productImage": "Product image",
     "technicalSpecs": "Technical specifications"
   },
+  "table": {
+    "searchPlaceholder": "🔍 Search...",
+    "noResults": "No results found",
+    "previous": "← Previous",
+    "next": "Next →",
+    "pageInfo": "Page {{page}} of {{totalPages}} ({{totalResults}} results)"
+  },
   "language": {
     "select": "Language",
     "es": "Español",

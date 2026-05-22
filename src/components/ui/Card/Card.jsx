@@ -1,5 +1,3 @@
-'use client';
-
 /**
  * Card - Generic compound Card component
  * Provides consistent card layout with image, body, title, and description

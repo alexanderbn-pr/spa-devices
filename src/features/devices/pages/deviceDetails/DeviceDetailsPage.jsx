@@ -1,9 +1,8 @@
-'use client';
-
 import './device-details.scss';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDeviceDetails } from '../../../../hooks/useDeviceDetails';
+import { useDeviceOptions } from '../../../../hooks/useDeviceOptions';
 import { CURRENCY, WEIGHT, UNKNOWN } from '../../../../constants';
 import { useCart } from '../../../../hooks/useCart';
 import { DeviceListSkeleton } from '../../../../components/deviceList/DeviceListSkeleton';
@@ -16,13 +15,16 @@ const DeviceDetailsPage = () => {
     isLoadingDeviceDetails,
     isErrorDeviceDetails,
     getDeviceDetails,
+  } = useDeviceDetails(id);
+
+  const {
     storages,
     storageSelected,
     setStorageSelected,
     colors,
     colorSelected,
     setColorSelected,
-  } = useDeviceDetails(id);
+  } = useDeviceOptions(deviceDetails);
 
   const { addToCart, isLoadingAddingCart } = useCart();
 

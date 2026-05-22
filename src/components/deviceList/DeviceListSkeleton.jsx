@@ -1,11 +1,9 @@
 /**
  * Skeleton para mostrar mientras cargan los dispositivos
- * Evita layout shift y da feedback visual inmediato
- * Se usa como fallback de Suspense
  */
 import { useTranslation } from 'react-i18next';
 
-const DeviceListSkeleton = ({ count = 6 }) => {
+const DeviceListSkeleton = ({ count = 8 }) => {
   const { t } = useTranslation();
 
   return (
@@ -34,7 +32,7 @@ const DeviceListSkeleton = ({ count = 6 }) => {
 };
 
 DeviceListSkeleton.defaultProps = {
-  count: 6,
+  count: 8,
 };
 
 export { DeviceListSkeleton };
